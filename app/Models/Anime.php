@@ -10,4 +10,9 @@ class Anime extends Model
 {
     use HasFactory;
     use Searchable;
+
+    public function shouldBeSearchable()
+    {
+        return $this->published === true;
+    }
 }
