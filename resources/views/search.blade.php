@@ -16,12 +16,14 @@
                     @if ($results)
                         <div class="space-y-4">
                             @if ($results->count())
+                            <p>Found {{ $results->total() }} results</p>
                                @foreach ($results as $result)
                                  <div>
                                     <h1 class="text-lg font-semibold">{{ $result->title }}</h1>
                                     <p> {{ $result->content }} </p>
                                  </div>
                                @endforeach
+                               {{ $results->links() }}
                             @else
                                <p>you don't have results yet</p>
                             @endif

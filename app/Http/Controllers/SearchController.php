@@ -11,7 +11,7 @@ class SearchController extends Controller
     {
         $results = null;
         if($query = $request->get('query')){
-            $results = Anime::search($query)->get();
+            $results = Anime::search($query)->paginate(5);
         }
         return view('search',[
             'results' => $results
