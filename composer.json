@@ -5,14 +5,16 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.2",
+        "algolia/algoliasearch-client-php": "^4.18",
         "guzzlehttp/guzzle": "^7.2",
         "http-interop/http-factory-guzzle": "^1.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/scout": "^9.4",
         "laravel/tinker": "^2.7",
-        "meilisearch/meilisearch-php": "^0.25.0"
+        "meilisearch/meilisearch-php": "^0.25.0",
+        "nette/schema": "^1.2.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -61,7 +63,8 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
         }
     },
     "minimum-stability": "dev",

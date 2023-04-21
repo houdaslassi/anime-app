@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('animes', function (Blueprint $table) {
-            $table->boolean('published')->default(false);
+            if (Schema::hasColumn('animes', 'user_id')) {
+                $table->dropForeign(['user_id']);
+                $table->dropColumn('user_id');
+            }
         });
     }
 
@@ -26,7 +29,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('animes', function (Blueprint $table) {
-            $table->dropColumn('published');
+            if (!Schema::hasColumn('animes', 'user_id')) {
+                $table->foreignId('user_id')->nullable()->constrained();
+            }
         });
     }
 };
